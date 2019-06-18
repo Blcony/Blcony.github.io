@@ -77,11 +77,11 @@
 <meta name="keywords" content="Algorithms,Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Algorithms Easy">
-<meta property="og:url" content="http://Blcony.github.io/Leetcode-Algorithms/index.html">
+<meta property="og:url" content="http://Blcony.github.io/Leetcode-Algorithms-Easy/index.html">
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-17T07:28:10.751Z">
+<meta property="og:updated_time" content="2019-06-18T06:49:15.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -114,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://Blcony.github.io/Leetcode-Algorithms/">
+  <link rel="canonical" href="http://Blcony.github.io/Leetcode-Algorithms-Easy/">
 
 
 
@@ -257,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Blcony.github.io/Leetcode-Algorithms/">
+    <link itemprop="mainEntityOfPage" href="http://Blcony.github.io/Leetcode-Algorithms-Easy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bill Chou">
@@ -359,6 +359,33 @@
       
         <p>Leetcode的算法之路 – Easy</p>
 <a id="more"></a>
+<h1 id="0-Template"><a href="#0-Template" class="headerlink" title="0. Template"></a>0. Template</h1><ul>
+<li>题目链接</li>
+<li>题目类别</li>
+<li>解题思路</li>
+<li>具体做法</li>
+<li>(其他想法)</li>
+</ul>
+<h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><ul>
+<li><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum/</a></li>
+<li><p>Hash tabel</p>
+</li>
+<li><p>入门题目。最直接的想法当然是暴力循环，但是时间复杂度比较高，不太优雅。其实这个题目与“找到list中特定元素位置”意思相同，只不过这里绕了一个小弯，要找的是list中两个元素相加等于特定元素时两个元素的位置。其实也很简单，先让 target - element[i] 得到一个特定元素，然后按hash tabel查找的思路进行查找便可。</p>
+</li>
+<li><ol>
+<li>构造hash tabel</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">	d[nums[i]] = i</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>一次循环，得到对应每个element[i]的特定查找值</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">	v = target - nums[i]</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>对于得到的v值，进行hash tabel的查找即可，因为假设只有一个solution，所以找到后返回即可</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if d.get(v) != None and d.get(v) != i:</span><br><span class="line">   	result.append(i)</span><br><span class="line">       result.append(d.get(v))</span><br><span class="line">       return result</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -451,8 +478,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -528,6 +564,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
