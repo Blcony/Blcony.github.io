@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-18T06:54:38.037Z">
+<meta property="og:updated_time" content="2019-06-19T06:48:58.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -387,6 +387,28 @@
 </ul>
 </li>
 </ul>
+<h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h1><ul>
+<li><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-parentheses/</a></p>
+</li>
+<li><p>Stack</p>
+</li>
+<li><p>括号配对问题，入门级别。能够实现的方法应该有很多，自己做的时候也有很多想法，但是感觉都不够优雅。最后才发现，使用stack数据结构才是解这种配对问题的正确思路。使用stack的话，问题就变得很直接。把不同类型的括号一次入栈，如果入栈元素与栈顶元素相配对，则将两者消除。如此，若所有括号都能成功配对，则最后栈的长度应为0。</p>
+<ul>
+<li><p>极端条件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> len(s) == <span class="number">0</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这里有一个小trick，可以利用dict的性质，快速优美的对括号配对情况进行判断</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dict_paired = &#123;<span class="string">')'</span>: <span class="string">'('</span>, <span class="string">']'</span>: <span class="string">'['</span>, <span class="string">'&#125;'</span>: <span class="string">'&#123;'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一次循环，将各种括号依次入栈，并且在入栈过程中对配对进行判断。这里有一点需要注意，循环里面第一个判断不能少，因为不判断<code>i</code>是否在<code>dict_paired</code>中的话，下一个判断中的<code>dict_paired[i]</code>会报错</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">stack = [s[<span class="number">0</span>]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s[<span class="number">1</span>:]:</span><br><span class="line">	<span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> dict_paired:</span><br><span class="line">		stack.append(i)</span><br><span class="line">	<span class="keyword">elif</span> len(stack) != <span class="number">0</span> <span class="keyword">and</span> dict_paired[i] == stack[<span class="number">-1</span>]:</span><br><span class="line">		stack.pop()</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		stack.append(i)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后判断stack的长度，以确定返回结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -575,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li></ol></div>
             
 
           </div>
