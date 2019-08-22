@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-19T06:48:58.879Z">
+<meta property="og:updated_time" content="2019-08-22T12:10:22.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -409,6 +409,27 @@
 </ul>
 </li>
 </ul>
+<h1 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53.Maximum Subarray"></a>53.Maximum Subarray</h1><ul>
+<li><p><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-subarray/</a></p>
+</li>
+<li><p>动态规划</p>
+</li>
+<li><p>很经典的动态规划题目。求解这种连续问题的时候其实是需要知道以每个点为结尾的最大值情况，之所以是要以每个点为结尾，是因为需要满足连续性。</p>
+<ul>
+<li><p>需要维护一个与输入长度等长的result列表，用来存储每个点的情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">length = len(nums)</span><br><span class="line">result = np.zeros(length)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>遍历result，把以每个元素为结尾的最大值情况计算出来。具体的计算方法是：若上一个节点的最大值&gt;0，则以当前结点为结尾的最大值等于当前值加上上一个节点的最大值，反之不加。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(length):</span><br><span class="line">	<span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">    	result[i] = nums[i]</span><br><span class="line">        	<span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">if</span> result[i<span class="number">-1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">        	result[i] = result[i<span class="number">-1</span>] + nums[i]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">        	result[i] = nums[i]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回result中的最大值即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> int(np.max(result))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>上面的解法是很经典的动态规划的解法，但实际上这样维护列表的方式比较耗时。对于这种取最大值的问题，可以只设定一个最大值，然后在遍历过程中及时更新，这样比较节省时间和空间。</p>
+</li>
+</ul>
 
       
     </div>
@@ -601,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">4.</span> <span class="nav-text">53.Maximum Subarray</span></a></li></ol></div>
             
 
           </div>
