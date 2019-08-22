@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Ubuntu,GPU,">
+  <meta name="keywords" content="Algorithms,Leetcode,">
 
 
 
@@ -73,18 +73,18 @@
 
 
 
-<meta name="description" content="介绍Ubuntu系统的显卡安装过程">
-<meta name="keywords" content="Ubuntu,GPU">
+<meta name="description" content="Leetcode的算法之路 – Medium">
+<meta name="keywords" content="Algorithms,Leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu显卡驱动安装">
-<meta property="og:url" content="http://Blcony.github.io/Ubuntu显卡驱动安装/index.html">
+<meta property="og:title" content="Leetcode Algorithms Medium">
+<meta property="og:url" content="http://Blcony.github.io/Leetcode-Algorithms-Medium/index.html">
 <meta property="og:site_name" content="Blcony">
-<meta property="og:description" content="介绍Ubuntu系统的显卡安装过程">
+<meta property="og:description" content="Leetcode的算法之路 – Medium">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-31T03:25:43.621Z">
+<meta property="og:updated_time" content="2019-08-22T08:50:47.282Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu显卡驱动安装">
-<meta name="twitter:description" content="介绍Ubuntu系统的显卡安装过程">
+<meta name="twitter:title" content="Leetcode Algorithms Medium">
+<meta name="twitter:description" content="Leetcode的算法之路 – Medium">
 
 
 
@@ -114,13 +114,13 @@
 
 
 
-  <link rel="canonical" href="http://Blcony.github.io/Ubuntu显卡驱动安装/">
+  <link rel="canonical" href="http://Blcony.github.io/Leetcode-Algorithms-Medium/">
 
 
 
 
 
-  <title>Ubuntu显卡驱动安装 | Blcony</title>
+  <title>Leetcode Algorithms Medium | Blcony</title>
   
 
 
@@ -257,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Blcony.github.io/Ubuntu显卡驱动安装/">
+    <link itemprop="mainEntityOfPage" href="http://Blcony.github.io/Leetcode-Algorithms-Medium/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bill Chou">
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Ubuntu显卡驱动安装</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode Algorithms Medium</h1>
         
 
         <div class="post-meta">
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-19T14:35:33+08:00">
-                2019-02-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-22T16:50:15+08:00">
+                2019-08-22
               </time>
             
 
@@ -309,8 +309,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/" itemprop="url" rel="index">
-                    <span itemprop="name">Tools</span>
+                  <a href="/categories/Program/" itemprop="url" rel="index">
+                    <span itemprop="name">Program</span>
                   </a>
                 </span>
 
@@ -320,8 +320,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tools/Ubuntu/" itemprop="url" rel="index">
-                    <span itemprop="name">Ubuntu</span>
+                  <a href="/categories/Program/Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithms</span>
                   </a>
                 </span>
 
@@ -357,17 +357,52 @@
       
 
       
-        <p>介绍Ubuntu系统的显卡安装过程</p>
+        <p>Leetcode的算法之路 – Medium</p>
 <a id="more"></a>
-<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><ul>
-<li>Ubuntu 16.04</li>
+<h1 id="0-Template"><a href="#0-Template" class="headerlink" title="0. Template"></a>0. Template</h1><ul>
+<li>题目链接</li>
+<li>题目类别</li>
+<li>解题思路<ul>
+<li>具体做法</li>
 </ul>
-<h1 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h1><h2 id="连接源"><a href="#连接源" class="headerlink" title="连接源"></a>连接源</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers/ppa</span><br></pre></td></tr></table></figure>
-<h2 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<h2 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nvidia-390  #版本号可以根据本地显卡型号，在官网自行查询</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mesa-common-dev</span><br><span class="line">sudo apt-get install freeglut3-dev</span><br></pre></td></tr></table></figure>
-<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-<h2 id="查看显卡情况"><a href="#查看显卡情况" class="headerlink" title="查看显卡情况"></a>查看显卡情况</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+</li>
+<li>(其他想法)</li>
+</ul>
+<h1 id="15-3Sum"><a href="#15-3Sum" class="headerlink" title="15.3Sum"></a>15.3Sum</h1><ul>
+<li><p><a href="https://leetcode.com/problems/3sum/description/" target="_blank" rel="noopener">https://leetcode.com/problems/3sum/description/</a></p>
+</li>
+<li><p>双指针法</p>
+</li>
+<li><p>受two sum问题的影响，这个题目给我的直观思路就是：</p>
+<ul>
+<li>先判断输入List是否为空，若为空，则直接返回结果为空。</li>
+<li>先将数字集合分为正数、负数两个集合，从而将问题分成两个情况，两负一正和两正一负。</li>
+<li>两正一负。循环遍历正数、负数集合，然后得到三个数中的最后一个数，用python内嵌的List查找函数在正数集合里面找到最后一个数。两负一正的情况也是这样处理。</li>
+<li>这种解法会产生大量重复的list。因此，在存储list时，先对得到的三个数进行排序，然后存入。然后，将list转为tuple，再利用set集合的属性自动去重，最后将set转换为list返回即可。</li>
+</ul>
+<p>但是很不幸，这种方法无法AC，因为会有Time Limie Exceed的问题存在。这说明两次循环加内嵌查找的方法并不能在允许的时间范围内解决问题。</p>
+<p><strong>双指针法</strong>：</p>
+<ul>
+<li><p>先判断输入是否为空，若为空则返回为空。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> len(nums) == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对输入list进行排序，并构造返回列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.sort()</span><br><span class="line">result = []</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用i对list进行遍历，然后设置 point_1=i+1, point_2=len(nums)-1，这就是所谓的双指针。这里有两个小细节：（1）i遍历时可以判断当前值与上一个值是否相等，若相等则直接跳过，这样可以大大减少算法运算时间，但要注意第一次遍历无需比较；（2）如果当前遍历到值大于0，则可以直接跳出while循环了，因为list是排过序的，三个数相加等于0，必有一个数小于或等于0。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">    one = nums[i]</span><br><span class="line">    <span class="keyword">if</span> one &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> one == nums[i<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    point_1 = i + <span class="number">1</span></span><br><span class="line">    point_2 = len(nums) - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对三个索引所对应的值进行相加。若为0，则加入到返回返回列表，并让point_1, point_2相对运动；小于0，则point_1=point_1+1；大于0，则point_2=point_2-1。很直观，相加小则让组成元素变大，相加大则让组成元素变小。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(point_1 &lt; point_2):</span><br><span class="line">   	sumup = one + nums[point_1] + nums[point_2]</span><br><span class="line">   	<span class="keyword">if</span> sumup == <span class="number">0</span>:</span><br><span class="line">   		result.append([one, nums[point_1], nums[point_2]])</span><br><span class="line">   		point_1 = point_1 + <span class="number">1</span></span><br><span class="line">   		point_2 = point_2 - <span class="number">1</span></span><br><span class="line">   	<span class="keyword">elif</span> sumup &gt; <span class="number">0</span>:</span><br><span class="line">   		point_2 = point_2 - <span class="number">1</span></span><br><span class="line">   	<span class="keyword">else</span>:</span><br><span class="line">   		point_1 = point_1 + <span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这种解法会产生大量重复的list。因此，在存储list时，先对得到的三个数进行排序，然后存入。然后，将list转为tuple，再利用set集合的属性自动去重，最后将set转换为list返回即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">result = list(set([tuple(t) <span class="keyword">for</span> t <span class="keyword">in</span> result]))</span><br><span class="line">   result = [list(t) <span class="keyword">for</span> t <span class="keyword">in</span> result]</span><br><span class="line">   <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>双指针法总体的设计还是很巧妙的，尤其对于这种Sum=Target的问题很高效。其中，sort降低算法复杂度的思路很关键。</p>
+</li>
+</ul>
 
       
     </div>
@@ -385,9 +420,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+            <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
           
-            <a href="/tags/GPU/" rel="tag"># GPU</a>
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           
         </div>
       
@@ -400,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/JupyterNotebook安装/" rel="next" title="JupyterNotebook安装">
-                <i class="fa fa-chevron-left"></i> JupyterNotebook安装
+              <a href="/Debug-Record/" rel="next" title="Debug Record">
+                <i class="fa fa-chevron-left"></i> Debug Record
               </a>
             
           </div>
@@ -409,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Ubuntu无法登录的解决方法/" rel="prev" title="Ubuntu无法登录的解决方法">
-                Ubuntu无法登录的解决方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -560,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装过程"><span class="nav-number">2.</span> <span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接源"><span class="nav-number">2.1.</span> <span class="nav-text">连接源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新源"><span class="nav-number">2.2.</span> <span class="nav-text">更新源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装显卡驱动"><span class="nav-number">2.3.</span> <span class="nav-text">安装显卡驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启"><span class="nav-number">2.4.</span> <span class="nav-text">重启</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看显卡情况"><span class="nav-number">2.5.</span> <span class="nav-text">查看显卡情况</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#15-3Sum"><span class="nav-number">2.</span> <span class="nav-text">15.3Sum</span></a></li></ol></div>
             
 
           </div>
