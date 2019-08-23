@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-23T08:06:39.668Z">
+<meta property="og:updated_time" content="2019-08-23T08:09:01.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -383,8 +383,8 @@
 </ul>
 <ul>
 <li><p>一次循环，得到对应每个element[i]的特定查找值。对于得到的v值，进行hash tabel的查找即可，因为假设只有一个solution，所以找到后返回即可。</p>
-<pre><code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">    v = target - nums[i]</span><br><span class="line">    <span class="keyword">if</span> d.get(v) != <span class="literal">None</span> <span class="keyword">and</span> d.get(v) != i:</span><br><span class="line">        result.append(i)</span><br><span class="line">        result.append(d.get(v))</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-</code></pre></li>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">    v = target - nums[i]</span><br><span class="line">    <span class="keyword">if</span> d.get(v) != <span class="literal">None</span> <span class="keyword">and</span> d.get(v) != i:</span><br><span class="line">        result.append(i)</span><br><span class="line">        result.append(d.get(v))</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h1><ul>
 <li><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-parentheses/</a></p>
