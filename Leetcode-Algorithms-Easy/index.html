@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-23T07:58:35.528Z">
+<meta property="og:updated_time" content="2019-08-23T08:01:00.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -464,15 +464,15 @@
 <li>首先也要给出两种极端情况，分别是left node与right node均为None，此时是对称的，要返回True.</li>
 <li>如果left node 与 right node中一个是None，另一个不是，则返回False。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Symmetric</span><span class="params">(self, left, right)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> left==<span class="literal">None</span> <span class="keyword">and</span> right==<span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">	<span class="keyword">if</span> left==<span class="literal">None</span> <span class="keyword">or</span> right==<span class="literal">None</span>:</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Symmetric</span><span class="params">(self, left, right)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> left==<span class="literal">None</span> <span class="keyword">and</span> right==<span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> left==<span class="literal">None</span> <span class="keyword">or</span> right==<span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果left node 与 right node的val不相等，则直接返回False，因为有一个不对称，则是不对称。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">........<span class="keyword">if</span> left.val != right.val:</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">....<span class="keyword">if</span> left.val != right.val:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>最关键的一步是接下来递归要拆开成两路，一路是左左与右右，一路是左右与右左，最后取交返回.</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">........inpair = self.Symmetric(left.left, right.right)</span><br><span class="line">	outpair = self.Symmetric(left.right, right.left)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> (inpair <span class="keyword">and</span> outpair)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">....inpair = self.Symmetric(left.left, right.right)</span><br><span class="line">    outpair = self.Symmetric(left.right, right.left)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (inpair <span class="keyword">and</span> outpair)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
