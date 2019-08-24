@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-23T08:14:22.114Z">
+<meta property="og:updated_time" content="2019-08-24T07:38:33.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -479,6 +479,44 @@
 <li><p>递归算法非常经典，而树的结构正是天然的递归形式，所以递归树非常关键。</p>
 </li>
 </ul>
+<h1 id="136-Single-Number"><a href="#136-Single-Number" class="headerlink" title="136.Single Number"></a>136.Single Number</h1><ul>
+<li><p><a href="https://leetcode.com/problems/single-number/description/" target="_blank" rel="noopener">https://leetcode.com/problems/single-number/description/</a></p>
+</li>
+<li><p>Hash table</p>
+</li>
+<li><p>该题目要求在线性时间内求解问题，所以一次循环+查找的思路都不太对，因为内嵌的查找算法时间复杂度也不是线性的，不满足要求。而这种时间严格要求，但是空间约束不太严格的题目，hash table是比较直观的思路。所谓hash table，就是以value作为索引，而不是用顺序index作为索引。</p>
+<ul>
+<li><p>先构造一个空的hash table，其实就是构造一个字典。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一次循环，并且同时判断若已经出现在了hash table中，则标记为1，否则标记为0。这里有一个小技巧，进行判断时，可以使用python字典内嵌的result.get()函数，但是这是时间花费比下面的做法要高，建议使用下面的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">	<span class="keyword">if</span> i <span class="keyword">in</span> result:</span><br><span class="line">		result[i] = <span class="number">1</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		result[i] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再来一次循环，找到标志为0的元素即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> nums:</span><br><span class="line">	<span class="keyword">if</span> result[i] == <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="141-Linked-List-Cycle"><a href="#141-Linked-List-Cycle" class="headerlink" title="141.Linked List Cycle"></a>141.Linked List Cycle</h1><ul>
+<li><p><a href="https://leetcode.com/problems/linked-list-cycle/description/" target="_blank" rel="noopener">https://leetcode.com/problems/linked-list-cycle/description/</a></p>
+</li>
+<li><p>Linked list</p>
+</li>
+<li><p>题目稍微有点儿意思，主要是提供一种新的解题思路。如果链表里面有环，那么从头出发的两个一快一慢指针必定会相遇，抓住这一点即可。</p>
+<ul>
+<li><p>列出极端情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> head == <span class="literal">None</span> <span class="keyword">or</span> head.next == <span class="literal">None</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分别定义从头出发的两个指针。因为第一步已经判断了极端情况，所以可以将两个指针位置定义的不同。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">point_1 = head.next</span><br><span class="line">point_2 = head</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义while循环，判断标准就是两个指针是否相遇，如果相遇了则跳出循环，返回True；没有相遇的话，则必定在某个时刻point_1会到达链表尾部，此时返回False即可。这里有个小技巧，即无需判断point_2.因为point_2总是落后point_1，无需着重考虑。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(point_1 != point_2):</span><br><span class="line">	<span class="keyword">if</span> point_1.next==<span class="literal">None</span> <span class="keyword">or</span> point_1.next.next==<span class="literal">None</span>:</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">	point_1 = point_1.next.next</span><br><span class="line">	point_2 = point_2.next</span><br><span class="line"><span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -671,7 +709,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">4.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">5.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">6.</span> <span class="nav-text">101.Symmetric Tree</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">4.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">5.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">6.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">7.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">8.</span> <span class="nav-text">141.Linked List Cycle</span></a></li></ol></div>
             
 
           </div>
