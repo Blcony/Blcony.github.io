@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-24T07:38:33.243Z">
+<meta property="og:updated_time" content="2019-08-25T07:13:15.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -517,6 +517,54 @@
 </ul>
 </li>
 </ul>
+<h1 id="169-Majority-Element"><a href="#169-Majority-Element" class="headerlink" title="169.Majority Element"></a>169.Majority Element</h1><ul>
+<li><p><a href="https://leetcode.com/problems/majority-element/description/" target="_blank" rel="noopener">https://leetcode.com/problems/majority-element/description/</a></p>
+</li>
+<li><p>Hash table</p>
+</li>
+<li><p>很直观的解题思路，以数组value构造hash tabel，然后一次循环，遇到不同的value，令hash table中相应值加1。题目给定大于n/2的条件，所以遍历过程中判断hash table中是否有值大于n/2，一旦出现直接返回即可.</p>
+<ul>
+<li><p>构造空的hash table。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一次遍历，对于出现的元素对应hash table中的值加1。并且要注意判断是否满足返回条件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">	<span class="keyword">if</span> nums[i] <span class="keyword">in</span> result:</span><br><span class="line">		result[nums[i]] = result[nums[i]] + <span class="number">1</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		result[nums[i]] = <span class="number">1</span></span><br><span class="line">	<span class="keyword">if</span> result[nums[i]] &gt; len(nums)/<span class="number">2</span>:</span><br><span class="line">		<span class="keyword">return</span> nums[i]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>其实该题目还有一个非常简洁，巧妙的解法。因为题目要求majority element的出现次数要大于n/2，那么对nums进行排序，n/2位置处的元素当然就是majority element了。</p>
+<ul>
+<li><p>先排序，再返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.sort()</span><br><span class="line"><span class="keyword">return</span> nums[len(nums) // <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="198-House-Robber"><a href="#198-House-Robber" class="headerlink" title="198.House Robber"></a>198.House Robber</h1><ul>
+<li><p><a href="https://leetcode.com/problems/house-robber/description/" target="_blank" rel="noopener">https://leetcode.com/problems/house-robber/description/</a></p>
+</li>
+<li><p>动态规划</p>
+</li>
+<li><p>和斐波那契数列有点儿类似的感觉，也是从前往后进行循环，最后取一个max。这里的最优子结构其实也很明显：result[i] = max(result[i-1], result[i-2]+nums[i])，直观上的意义就是对于第i家，如果进行了抢劫，则抢劫的最大值就是当前第i家的金额+抢劫至i-2家金额（直接相加是因为全是正数，肯定越多越好），如果不抢劫那么能获得的最大值就是抢劫至上一家的最大值。</p>
+<ul>
+<li><p>构造一个等长list，用来存放不同节点处的最大值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(nums))]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给出一些极端条件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> len(nums) == <span class="number">1</span>:</span><br><span class="line">	<span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">if</span> len(nums) == <span class="number">2</span>:</span><br><span class="line">	<span class="keyword">return</span> max(nums)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义好result的前两项，注意result[1]的定义情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result[<span class="number">0</span>] = nums[<span class="number">0</span>]</span><br><span class="line">result[<span class="number">1</span>] = max(nums[<span class="number">0</span>], nums[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从前往后遍历，并每次满足最优子结构。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, len(nums)):</span><br><span class="line">	result[i] = max(result[i<span class="number">-1</span>], result[i<span class="number">-2</span>] + nums[i])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择最大值返回即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> max(result)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -709,7 +757,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">4.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">5.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">6.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">7.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">8.</span> <span class="nav-text">141.Linked List Cycle</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">4.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">5.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">6.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">7.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">8.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">9.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">10.</span> <span class="nav-text">198.House Robber</span></a></li></ol></div>
             
 
           </div>
