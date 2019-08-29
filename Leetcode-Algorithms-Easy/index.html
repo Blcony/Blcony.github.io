@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode的算法之路 – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-28T07:10:41.107Z">
+<meta property="og:updated_time" content="2019-08-29T07:21:03.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode的算法之路 – Easy">
@@ -620,8 +620,20 @@
 </li>
 </ul>
 <h1 id="437-Path-Sum-III"><a href="#437-Path-Sum-III" class="headerlink" title="437.Path Sum III"></a>437.Path Sum III</h1><ul>
-<li><a href="https://leetcode.com/problems/path-sum-iii/description/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum-iii/description/</a></li>
-<li></li>
+<li><p><a href="https://leetcode.com/problems/path-sum-iii/description/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum-iii/description/</a></p>
+</li>
+<li><p>递归式+DFS</p>
+</li>
+<li><p>这类题目的思路还是不太清晰，主要是对递归树的一些固定解法不够熟练，这种算法的解题思维还没有养成。那么本题其实可以使用双重DFS的思路进行求解。DFS函数有两个参数，一个是当前节点，另一个是想要得到的值。当前节点的值等于想得到的值时说明是可行节点，再求左右子节点的可行解的个数，求和即为所有。所谓双重DFS的意思是，求解以当前节点开始的解个数时需要用到DFS，而求解以当前节点左右子节点开始的解个数时也需要用到DFS。</p>
+<ul>
+<li><p>主函数定义。这里要注意的就是以当前节点开始搜索，然后以左右节点开始递归。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pathSum</span><span class="params">(self, root, sum)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> self.dfs(root, sum) + self.pathSum(root.left, sum) + self.pathSum(root.right, sum)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DFS函数定义。简洁的思路，只不过带了一个参数而已。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, root, sum)</span>:</span></span><br><span class="line">	res = <span class="number">0</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> res</span><br><span class="line">	sum -= root.val</span><br><span class="line">	<span class="keyword">if</span> sum == <span class="number">0</span>:</span><br><span class="line">		res += <span class="number">1</span></span><br><span class="line">	res += self.dfs(root.left, sum)</span><br><span class="line">	res += self.dfs(root.right, sum)</span><br><span class="line">	<span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
 </ul>
 
       
