@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="记录项目中有关tensorflow代码的debug经历">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-29T08:34:06.285Z">
+<meta property="og:updated_time" content="2019-11-08T02:50:43.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debug Record">
 <meta name="twitter:description" content="记录项目中有关tensorflow代码的debug经历">
@@ -384,6 +384,9 @@
 <h1 id="IRR-net"><a href="#IRR-net" class="headerlink" title="IRR_net"></a>IRR_net</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: Error(s) in loading state_dict for flownet1s:</span><br><span class="line">   	Missing key(s) in state_dict</span><br><span class="line">   	Unexpected key(s) in state_dict</span><br></pre></td></tr></table></figure>
 <p>–&gt; 这个问题当时很让我奇怪，因为同样的代码之前已经成功跑通了。后来发现原来，使用多卡train，保存model之后，想再读出model，需要调用同样的多卡函数。</p>
 <p>–&gt; 在加载之前训练好的model时，需要同样对model加上多卡的设置: model = nn.DataParallel(model)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: Expected tensor for argument #1 &apos;input&apos; to have the same device as tensor for argument #2 &apos;weight&apos;; but device 1 does not equal 0 (while checking arguments for cudnn_convolution)</span><br></pre></td></tr></table></figure>
+<p>–&gt; 这个问题的原因是，pytorch中对model定义init函数时，如果需要一个列表用来存储不同conv，不能使用python自带的list数据结构，而是应该使用nn.ModuleList() 函数创建一个有相同功能的list。</p>
+<p>–&gt; 然后用for循环，把需要的conv append到nn.ModuleList() 中，这样问题就会得到解决。</p>
 
       
     </div>
