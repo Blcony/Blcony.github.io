@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Tensorflow,Debug,">
+  <meta name="keywords" content="Debug,">
 
 
 
@@ -73,18 +73,18 @@
 
 
 
-<meta name="description" content="记录项目中有关tensorflow代码的debug经历">
-<meta name="keywords" content="Tensorflow,Debug">
+<meta name="description" content="记录项目中代码的debug经历">
+<meta name="keywords" content="Debug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Debug Record">
 <meta property="og:url" content="http://Blcony.github.io/Debug-Record/index.html">
 <meta property="og:site_name" content="Blcony">
-<meta property="og:description" content="记录项目中有关tensorflow代码的debug经历">
+<meta property="og:description" content="记录项目中代码的debug经历">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-24T02:32:24.833Z">
+<meta property="og:updated_time" content="2019-12-24T02:43:59.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debug Record">
-<meta name="twitter:description" content="记录项目中有关tensorflow代码的debug经历">
+<meta name="twitter:description" content="记录项目中代码的debug经历">
 
 
 
@@ -357,7 +357,7 @@
       
 
       
-        <p>记录项目中有关tensorflow代码的debug经历</p>
+        <p>记录项目中代码的debug经历</p>
 <a id="more"></a>
 <h1 id="Autoencoder"><a href="#Autoencoder" class="headerlink" title="Autoencoder"></a>Autoencoder</h1> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OutOfRangeError (see above for traceback): FIFOQueue &apos;_1_train_inputs/batch/fifo_queue&apos; is closed and has insufficient elements (requested 1, current size 0)</span><br><span class="line">	 [[Node: train_inputs/batch = QueueDequeueManyV2[component_types=[DT_FLOAT], timeout_ms=-1, _device=&quot;/job:localhost/replica:0/task:0/device:CPU:0&quot;](train_inputs/batch/fifo_queue, train_inputs/batch/n)]]</span><br><span class="line">	 [[Node: train_inputs/batch/_9 = _Recv[client_terminated=false, recv_device=&quot;/job:localhost/replica:0/task:0/device:GPU:0&quot;, send_device=&quot;/job:localhost/replica:0/task:0/device:CPU:0&quot;, send_device_incarnation=1, tensor_name=&quot;edge_20_train_inputs/batch&quot;, tensor_type=DT_FLOAT, _device=&quot;/job:localhost/replica:0/task:0/device:GPU:0&quot;]()]]</span><br></pre></td></tr></table></figure>
 <p>–&gt; 用 tf.train.slice_input_producer 读入图片时其实时二维的，并非三维，数组维度出错。</p>
@@ -387,6 +387,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: Expected tensor for argument #1 &apos;input&apos; to have the same device as tensor for argument #2 &apos;weight&apos;; but device 1 does not equal 0 (while checking arguments for cudnn_convolution)</span><br></pre></td></tr></table></figure>
 <p>–&gt; 这个问题的原因是，pytorch中对model定义init函数时，如果需要一个列表用来存储不同conv，不能使用python自带的list数据结构，而是应该使用nn.ModuleList() 函数创建一个有相同功能的list。</p>
 <p>–&gt; 然后用for循环，把需要的conv append到nn.ModuleList() 中，这样问题就会得到解决。</p>
+<h1 id="VCNet"><a href="#VCNet" class="headerlink" title="VCNet"></a>VCNet</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation</span><br></pre></td></tr></table></figure>
+<p>–&gt; pytorch1.0 才会出现的问题，pytorch1.1之后好像得到了修改。</p>
+<p>–&gt; 修改方法如下，结论是注意a = a + 1这种操作，多用clone()</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vgrid[:,<span class="number">0</span>,:,:] = <span class="number">2.0</span> * vgrid[:,<span class="number">0</span>,:,:] / max(W<span class="number">-1</span>,<span class="number">1</span>) - <span class="number">1.0</span></span><br><span class="line">--&gt; vgrid[:,0,:,:] = 2.0 * vgrid.clone()[:,0,:,:] / max(W-1,1) - 1.0</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -403,8 +407,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/Tensorflow/" rel="tag"># Tensorflow</a>
           
             <a href="/tags/Debug/" rel="tag"># Debug</a>
           
@@ -530,7 +532,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -579,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Autoencoder"><span class="nav-number">1.</span> <span class="nav-text">Autoencoder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RegisNet"><span class="nav-number">2.</span> <span class="nav-text">RegisNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConyNet"><span class="nav-number">3.</span> <span class="nav-text">ConyNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IRR-net"><span class="nav-number">4.</span> <span class="nav-text">IRR_net</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Autoencoder"><span class="nav-number">1.</span> <span class="nav-text">Autoencoder</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RegisNet"><span class="nav-number">2.</span> <span class="nav-text">RegisNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConyNet"><span class="nav-number">3.</span> <span class="nav-text">ConyNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IRR-net"><span class="nav-number">4.</span> <span class="nav-text">IRR_net</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VCNet"><span class="nav-number">5.</span> <span class="nav-text">VCNet</span></a></li></ol></div>
             
 
           </div>
