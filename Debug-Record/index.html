@@ -73,18 +73,18 @@
 
 
 
-<meta name="description" content="记录项目中代码的debug经历">
+<meta name="description" content="记录项目中代码的Debug经历">
 <meta name="keywords" content="Debug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Debug Record">
 <meta property="og:url" content="http://Blcony.github.io/Debug-Record/index.html">
 <meta property="og:site_name" content="Blcony">
-<meta property="og:description" content="记录项目中代码的debug经历">
+<meta property="og:description" content="记录项目中代码的Debug经历">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-24T02:43:59.626Z">
+<meta property="og:updated_time" content="2019-12-25T11:34:04.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debug Record">
-<meta name="twitter:description" content="记录项目中代码的debug经历">
+<meta name="twitter:description" content="记录项目中代码的Debug经历">
 
 
 
@@ -357,7 +357,7 @@
       
 
       
-        <p>记录项目中代码的debug经历</p>
+        <p>记录项目中代码的Debug经历</p>
 <a id="more"></a>
 <h1 id="Autoencoder"><a href="#Autoencoder" class="headerlink" title="Autoencoder"></a>Autoencoder</h1> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OutOfRangeError (see above for traceback): FIFOQueue &apos;_1_train_inputs/batch/fifo_queue&apos; is closed and has insufficient elements (requested 1, current size 0)</span><br><span class="line">	 [[Node: train_inputs/batch = QueueDequeueManyV2[component_types=[DT_FLOAT], timeout_ms=-1, _device=&quot;/job:localhost/replica:0/task:0/device:CPU:0&quot;](train_inputs/batch/fifo_queue, train_inputs/batch/n)]]</span><br><span class="line">	 [[Node: train_inputs/batch/_9 = _Recv[client_terminated=false, recv_device=&quot;/job:localhost/replica:0/task:0/device:GPU:0&quot;, send_device=&quot;/job:localhost/replica:0/task:0/device:CPU:0&quot;, send_device_incarnation=1, tensor_name=&quot;edge_20_train_inputs/batch&quot;, tensor_type=DT_FLOAT, _device=&quot;/job:localhost/replica:0/task:0/device:GPU:0&quot;]()]]</span><br></pre></td></tr></table></figure>
 <p>–&gt; 用 tf.train.slice_input_producer 读入图片时其实时二维的，并非三维，数组维度出错。</p>
@@ -431,8 +431,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Leetcode-Algorithms-Medium/" rel="prev" title="Leetcode Algorithms Medium">
-                Leetcode Algorithms Medium <i class="fa fa-chevron-right"></i>
+              <a href="/Pytorch基础/" rel="prev" title="Pytorch基础">
+                Pytorch基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -510,7 +510,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -521,7 +521,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -532,7 +532,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

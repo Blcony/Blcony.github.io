@@ -62,7 +62,7 @@
 
 
 
-  <meta name="keywords" content="Python,">
+  <meta name="keywords" content="Pytorch,">
 
 
 
@@ -73,18 +73,18 @@
 
 
 
-<meta name="description" content="介绍Numpy常用的函数">
-<meta name="keywords" content="Python">
+<meta name="description" content="记录Pytorch中常使用的基础命令">
+<meta name="keywords" content="Pytorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Numpy常用函数">
-<meta property="og:url" content="http://Blcony.github.io/Numpy常用函数/index.html">
+<meta property="og:title" content="Pytorch基础">
+<meta property="og:url" content="http://Blcony.github.io/Pytorch基础/index.html">
 <meta property="og:site_name" content="Blcony">
-<meta property="og:description" content="介绍Numpy常用的函数">
+<meta property="og:description" content="记录Pytorch中常使用的基础命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-25T11:34:09.961Z">
+<meta property="og:updated_time" content="2019-12-29T06:47:25.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Numpy常用函数">
-<meta name="twitter:description" content="介绍Numpy常用的函数">
+<meta name="twitter:title" content="Pytorch基础">
+<meta name="twitter:description" content="记录Pytorch中常使用的基础命令">
 
 
 
@@ -114,13 +114,13 @@
 
 
 
-  <link rel="canonical" href="http://Blcony.github.io/Numpy常用函数/">
+  <link rel="canonical" href="http://Blcony.github.io/Pytorch基础/">
 
 
 
 
 
-  <title>Numpy常用函数 | Blcony</title>
+  <title>Pytorch基础 | Blcony</title>
   
 
 
@@ -257,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://Blcony.github.io/Numpy常用函数/">
+    <link itemprop="mainEntityOfPage" href="http://Blcony.github.io/Pytorch基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bill Chou">
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Numpy常用函数</h1>
+          <h1 class="post-title" itemprop="name headline">Pytorch基础</h1>
         
 
         <div class="post-meta">
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-05T14:52:18+08:00">
-                2019-12-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-27T14:48:32+08:00">
+                2019-06-27
               </time>
             
 
@@ -320,8 +320,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Program/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Program/Pytorch/" itemprop="url" rel="index">
+                    <span itemprop="name">Pytorch</span>
                   </a>
                 </span>
 
@@ -357,11 +357,33 @@
       
 
       
-        <p>介绍Numpy常用的函数</p>
+        <p>记录Pytorch中常使用的基础命令</p>
 <a id="more"></a>
-<h3 id="np-ascontiguousarry"><a href="#np-ascontiguousarry" class="headerlink" title="np.ascontiguousarry"></a>np.ascontiguousarry</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ascontiguousarray</span><span class="params">(a, dtype=None)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return a contiguous array (ndim &gt;= 1) in memory (C order).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Parameters</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    a : array_like</span></span><br><span class="line"><span class="string">        Input array.</span></span><br><span class="line"><span class="string">    dtype : str or dtype object, optional</span></span><br><span class="line"><span class="string">        Data-type of returned array.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">    -------</span></span><br><span class="line"><span class="string">    out : ndarray</span></span><br><span class="line"><span class="string">        Contiguous array of same shape and content as `a`, with type `dtype`</span></span><br><span class="line"><span class="string">        if specified.</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>让数组存储时，按行优先存入内存，行优先便于加速关于行的计算操作。</li>
+<h2 id="model-train"><a href="#model-train" class="headerlink" title="model.train()"></a>model.train()</h2><ul>
+<li>model.train()：启用 BatchNormalization 和 Dropout</li>
+<li><p>model.eval()：不启用 BatchNormalization 和 Dropout</p>
+</li>
+<li><p>model 训练结束后，会被用来进行测试。这时需要加上 model.eval()，否则有输入数据，即使不训练，网络本身也会改变权值。</p>
+</li>
+</ul>
+<h2 id="torch-Tensor-scatter-dim-index-src"><a href="#torch-Tensor-scatter-dim-index-src" class="headerlink" title="torch.Tensor.scatter_(dim, index, src)"></a>torch.Tensor.scatter_(dim, index, src)</h2><ul>
+<li><p>分散操作， 从张量 src 中按照 index 张量中指定的索引位置写入 self 张量的值 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = torch.rand(<span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line">y = torch.zeros(<span class="number">3</span>, <span class="number">5</span>).scatter_(<span class="number">0</span>, torch.LongTensor([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]]), x)</span><br><span class="line">print(x); print(y)</span><br><span class="line">--&gt;</span><br><span class="line">tensor([[<span class="number">0.1952</span>, <span class="number">0.6831</span>, <span class="number">0.9776</span>, <span class="number">0.4785</span>, <span class="number">0.9791</span>],</span><br><span class="line">        [<span class="number">0.6957</span>, <span class="number">0.2457</span>, <span class="number">0.4161</span>, <span class="number">0.4211</span>, <span class="number">0.4707</span>]])</span><br><span class="line">tensor([[<span class="number">0.1952</span>, <span class="number">0.2457</span>, <span class="number">0.4161</span>, <span class="number">0.4785</span>, <span class="number">0.9791</span>],</span><br><span class="line">        [<span class="number">0.0000</span>, <span class="number">0.6831</span>, <span class="number">0.0000</span>, <span class="number">0.4211</span>, <span class="number">0.0000</span>],</span><br><span class="line">        [<span class="number">0.6957</span>, <span class="number">0.0000</span>, <span class="number">0.9776</span>, <span class="number">0.0000</span>, <span class="number">0.4707</span>]])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通俗点儿理解，把 x 放入 y 中。在 dim=0 的情况下，放置的规则就是，先取 x 的第一行，然后根据 index 的第一行进行放入，index 中的每个值代表的是要放入 y 中的第几行。比如，[0, 1, 2, 0, 0] 就是 x 的第一行的第一个元素放入 y 第一行的第一个，第二个放入 y 第二行的第二个，第三个放入 y 第三行的第三个，第四个放入 y 第四行的第四个，依次进行即可。取完 x 的第一行，再取第二行，依次执行</p>
+</li>
+</ul>
+<h2 id="torch-where-condition-x-y"><a href="#torch-where-condition-x-y" class="headerlink" title="torch.where(condition, x, y)"></a>torch.where(condition, x, y)</h2><ul>
+<li>针对 x 而言，如果其中的每个元素都满足 condition，则返回 x 的值；如果不满足 condition，就用 y 的值替换 x 的值，最后返回结果</li>
+</ul>
+<h2 id="torch-clamp-input-min-max"><a href="#torch-clamp-input-min-max" class="headerlink" title="torch.clamp(input, min, max)"></a>torch.clamp(input, min, max)</h2><ul>
+<li>将输入 tensor 截断在 [min, max] 范围内</li>
+</ul>
+<h2 id="torch-norm-input-p-dim-out-None-keepdim-False"><a href="#torch-norm-input-p-dim-out-None-keepdim-False" class="headerlink" title="torch.norm(input, p, dim, out=None, keepdim=False)"></a>torch.norm(input, p, dim, out=None, keepdim=False)</h2><ul>
+<li>返回输入张量给定维度 dim 上的 p 范数<ul>
+<li>keepdim: 保持输出维度一致</li>
+</ul>
+</li>
 </ul>
 
       
@@ -380,7 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/Pytorch/" rel="tag"># Pytorch</a>
           
         </div>
       
@@ -393,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Leetcode-Algorithms-Medium/" rel="next" title="Leetcode Algorithms Medium">
-                <i class="fa fa-chevron-left"></i> Leetcode Algorithms Medium
+              <a href="/Debug-Record/" rel="next" title="Debug Record">
+                <i class="fa fa-chevron-left"></i> Debug Record
               </a>
             
           </div>
@@ -403,8 +425,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Ubuntu实用操作/" rel="prev" title="Ubuntu实用操作">
-                Ubuntu实用操作 <i class="fa fa-chevron-right"></i>
+              <a href="/Leetcode-Algorithms-Medium/" rel="prev" title="Leetcode Algorithms Medium">
+                Leetcode Algorithms Medium <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#np-ascontiguousarry"><span class="nav-number">1.</span> <span class="nav-text">np.ascontiguousarry</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#model-train"><span class="nav-number">1.</span> <span class="nav-text">model.train()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-Tensor-scatter-dim-index-src"><span class="nav-number">2.</span> <span class="nav-text">torch.Tensor.scatter_(dim, index, src)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-where-condition-x-y"><span class="nav-number">3.</span> <span class="nav-text">torch.where(condition, x, y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-clamp-input-min-max"><span class="nav-number">4.</span> <span class="nav-text">torch.clamp(input, min, max)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#torch-norm-input-p-dim-out-None-keepdim-False"><span class="nav-number">5.</span> <span class="nav-text">torch.norm(input, p, dim, out=None, keepdim=False)</span></a></li></ol></div>
             
 
           </div>
