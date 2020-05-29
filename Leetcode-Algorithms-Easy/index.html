@@ -73,18 +73,18 @@
 
 
 
-<meta name="description" content="Leetcode的算法之路 – Easy">
+<meta name="description" content="Leetcode – Easy">
 <meta name="keywords" content="Algorithms,Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode Algorithms Easy">
 <meta property="og:url" content="http://Blcony.github.io/Leetcode-Algorithms-Easy/index.html">
 <meta property="og:site_name" content="Blcony">
-<meta property="og:description" content="Leetcode的算法之路 – Easy">
+<meta property="og:description" content="Leetcode – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-29T07:21:03.132Z">
+<meta property="og:updated_time" content="2020-05-29T15:01:45.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
-<meta name="twitter:description" content="Leetcode的算法之路 – Easy">
+<meta name="twitter:description" content="Leetcode – Easy">
 
 
 
@@ -357,7 +357,7 @@
       
 
       
-        <p>Leetcode的算法之路 – Easy</p>
+        <p>Leetcode – Easy</p>
 <a id="more"></a>
 <h1 id="0-Template"><a href="#0-Template" class="headerlink" title="0. Template"></a>0. Template</h1><ul>
 <li>题目链接</li>
@@ -402,6 +402,28 @@
 </li>
 <li><p>最后判断stack的长度，以确定返回结果。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> len(stack) == <span class="number">0</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="21-Merge-Two-Sorted-Lists"><a href="#21-Merge-Two-Sorted-Lists" class="headerlink" title="21.Merge Two Sorted Lists"></a>21.Merge Two Sorted Lists</h1><ul>
+<li><p><a href="https://leetcode.com/problems/merge-two-sortedp-lists/" target="_blank" rel="noopener">https://leetcode.com/problems/merge-two-sortedp-lists/</a></p>
+</li>
+<li><p>List</p>
+</li>
+<li><p>这个题目感觉还是比较直观的，因为没有要求不能占用其余的空间。所以可以新建一个list，然后依次取l1, l2的元素，进行比较后，插入新建的list即可。</p>
+<ul>
+<li><p>新建一个新的链表。这里注意不仅要记录node，而且要记录root节点。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root = node = ListNode(<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依次比较后对新建的空list进行插入，这里要注意node也要依次后移。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> l1 <span class="keyword">and</span> l2:</span><br><span class="line">	<span class="keyword">if</span> l1.val &lt;= l2.val:</span><br><span class="line">		node.next = l1</span><br><span class="line">		l1 = l1.next</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        node.next = l2</span><br><span class="line">        l2 = l2.next</span><br><span class="line">    node = node.next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>l1或者l2为空之后，直接把余下的部分接到新建list后即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node.next = l1 or l2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后要注意返回的是root.next，因为新建的第一个节点为了索引并不需要返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> root.next</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -677,8 +699,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Debug-Record/" rel="prev" title="Debug Record">
-                Debug Record <i class="fa fa-chevron-right"></i>
+              <a href="/Pytorch基础/" rel="prev" title="Pytorch基础">
+                Pytorch基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -827,7 +849,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">4.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">5.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">6.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">7.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">8.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">9.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">10.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">11.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">12.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">13.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">14.</span> <span class="nav-text">437.Path Sum III</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">4.</span> <span class="nav-text">21.Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">5.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">6.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">7.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">8.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">9.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">10.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">11.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">12.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">13.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">14.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">15.</span> <span class="nav-text">437.Path Sum III</span></a></li></ol></div>
             
 
           </div>
