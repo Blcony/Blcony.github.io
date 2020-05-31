@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-29T15:01:45.200Z">
+<meta property="og:updated_time" content="2020-05-31T13:49:20.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode – Easy">
@@ -471,7 +471,7 @@
 <h1 id="101-Symmetric-Tree"><a href="#101-Symmetric-Tree" class="headerlink" title="101.Symmetric Tree"></a>101.Symmetric Tree</h1><ul>
 <li><p><a href="https://leetcode.com/problems/symmetric-tree/description/" target="_blank" rel="noopener">https://leetcode.com/problems/symmetric-tree/description/</a></p>
 </li>
-<li><p>递归&amp;&amp;树</p>
+<li><p>递归 &amp; 树</p>
 </li>
 <li><p>递归与树相结合，题目就开始变的灵活，此类题目如果不用递归的话，就会变得非常复杂。该题目灵活的地方在于是使用两个并列的递归进行求解，原因是这里的对称不是局部的对称，而是全局的对称。一句总结：左左要和右右同，左右要和右左同。</p>
 <ul>
@@ -499,6 +499,38 @@
 </ul>
 </li>
 <li><p>递归算法非常经典，而树的结构正是天然的递归形式，所以递归树非常关键。</p>
+</li>
+</ul>
+<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a>104. Maximum Depth of Binary Tree</h1><ul>
+<li><p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p>
+</li>
+<li><p>Binary Tree &amp; 递归</p>
+</li>
+<li><p>比较基础的一个题目，基于此的变化也比较多。想法很简单，“我”的深度是“我”的左右孩子深度最大值的加一值，直观上也很好理解，用递归进行实现。</p>
+<ul>
+<li><p>首先定义递归函数，当递归到叶子节点的孩子节点时，返回0。然后按照刚刚的规则进行计算即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">depth</span><span class="params">(root)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	d = max(depth(root.left), depth(root,right)) + <span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span> d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主函数里面直接调用即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = depth(root)</span><br><span class="line"><span class="keyword">return</span> d</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121.Best Time to Buy and Sell Stock"></a>121.Best Time to Buy and Sell Stock</h1><ul>
+<li><p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock/</a></p>
+</li>
+<li><p>List &amp; 分段</p>
+</li>
+<li><p>只用到一个分段的思想，整个过程只需要一次遍历，因为最大值的计算关乎顺序，而且只需要维护一个my_min值，这个值代表当前遍历到的最小值。</p>
+<ul>
+<li><p>初始化my_min及final_max的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_min = sys.maxsize</span><br><span class="line">final_max = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for循环遍历，并在遍历过程中记录最小值，计算最大差即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> prices:</span><br><span class="line">	<span class="keyword">if</span> i &lt; my_min:</span><br><span class="line">		my_min = i</span><br><span class="line">	<span class="keyword">elif</span> i - my_min &gt; final_max:</span><br><span class="line">		final_max = i - my_min</span><br><span class="line">	<span class="keyword">return</span> final_max</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <h1 id="136-Single-Number"><a href="#136-Single-Number" class="headerlink" title="136.Single Number"></a>136.Single Number</h1><ul>
@@ -849,7 +881,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">4.</span> <span class="nav-text">21.Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">5.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">6.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">7.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">8.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">9.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">10.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">11.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">12.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">13.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">14.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">15.</span> <span class="nav-text">437.Path Sum III</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">3.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">4.</span> <span class="nav-text">21.Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">5.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">6.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">7.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#104-Maximum-Depth-of-Binary-Tree"><span class="nav-number">8.</span> <span class="nav-text">104. Maximum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#121-Best-Time-to-Buy-and-Sell-Stock"><span class="nav-number">9.</span> <span class="nav-text">121.Best Time to Buy and Sell Stock</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">10.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">11.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">12.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">13.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">14.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">15.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">16.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">17.</span> <span class="nav-text">437.Path Sum III</span></a></li></ol></div>
             
 
           </div>
