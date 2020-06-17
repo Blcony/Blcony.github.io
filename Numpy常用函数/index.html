@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="介绍Numpy常用的函数">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-25T11:34:09.961Z">
+<meta property="og:updated_time" content="2020-06-17T12:15:02.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Numpy常用函数">
 <meta name="twitter:description" content="介绍Numpy常用的函数">
@@ -359,9 +359,39 @@
       
         <p>介绍Numpy常用的函数</p>
 <a id="more"></a>
-<h3 id="np-ascontiguousarry"><a href="#np-ascontiguousarry" class="headerlink" title="np.ascontiguousarry"></a>np.ascontiguousarry</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ascontiguousarray</span><span class="params">(a, dtype=None)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return a contiguous array (ndim &gt;= 1) in memory (C order).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Parameters</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    a : array_like</span></span><br><span class="line"><span class="string">        Input array.</span></span><br><span class="line"><span class="string">    dtype : str or dtype object, optional</span></span><br><span class="line"><span class="string">        Data-type of returned array.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">    -------</span></span><br><span class="line"><span class="string">    out : ndarray</span></span><br><span class="line"><span class="string">        Contiguous array of same shape and content as `a`, with type `dtype`</span></span><br><span class="line"><span class="string">        if specified.</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>让数组存储时，按行优先存入内存，行优先便于加速关于行的计算操作。</li>
+<h3 id="np-ascontiguousarry"><a href="#np-ascontiguousarry" class="headerlink" title="np.ascontiguousarry"></a>np.ascontiguousarry</h3><ul>
+<li><p>让数组存储时，按行优先存入内存，行优先便于加速关于行的计算操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ascontiguousarray</span><span class="params">(a, dtype=None)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Return a contiguous array (ndim &gt;= 1) in memory (C order).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Parameters</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    a : array_like</span></span><br><span class="line"><span class="string">        Input array.</span></span><br><span class="line"><span class="string">    dtype : str or dtype object, optional</span></span><br><span class="line"><span class="string">        Data-type of returned array.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">    -------</span></span><br><span class="line"><span class="string">    out : ndarray</span></span><br><span class="line"><span class="string">        Contiguous array of same shape and content as `a`, with type `dtype`</span></span><br><span class="line"><span class="string">        if specified.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="np-random"><a href="#np-random" class="headerlink" title="np.random"></a>np.random</h3><ul>
+<li>np.random.rand(d0, d1, …, dn)<ul>
+<li>返回给定维度的[0, 1)之间的均匀分布随机array</li>
+<li>dn表示每个维度，这里不需要写成tuple的形式</li>
+</ul>
+</li>
+<li>np.random.randn(d0, d1, …, dn)<ul>
+<li>返回给定维度的标准正太分布的随机array</li>
+<li>dn表示每个维度，这里不需要写成tuple的形式</li>
+</ul>
+</li>
+<li>np.random.randint(low, high=None, size=None, dtype=’l’)<ul>
+<li>返回给定维度的[low, high)的整数型随机array</li>
+<li>high没有填写时，默认生成随机数范围为[0, low)</li>
+<li>size为数组维度大小，需要tuple类型的输入</li>
+</ul>
+</li>
+<li>np.random.uniform(low, high=None, size=None, dtype=’l’)<ul>
+<li>返回给定维度的[low, high)的均匀分布随机array</li>
+<li>high没有填写时，默认生成随机数范围为[0, low)</li>
+<li>size为数组维度大小，需要tuple类型的输入</li>
+</ul>
+</li>
+<li>np.random.normal(loc=0, scale=1e-2, size=None, dtype=’l’)<ul>
+<li>返回给定维度的均值为loc方差为scale正态分布的随机array</li>
+<li>size为数组维度大小，需要tuple类型的输入</li>
+</ul>
+</li>
 </ul>
 
       
@@ -553,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#np-ascontiguousarry"><span class="nav-number">1.</span> <span class="nav-text">np.ascontiguousarry</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#np-ascontiguousarry"><span class="nav-number">1.</span> <span class="nav-text">np.ascontiguousarry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#np-random"><span class="nav-number">2.</span> <span class="nav-text">np.random</span></a></li></ol></div>
             
 
           </div>

@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-08T07:09:36.810Z">
+<meta property="og:updated_time" content="2020-06-17T08:10:37.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode – Easy">
@@ -368,7 +368,7 @@
 </li>
 <li>(其他想法)</li>
 </ul>
-<h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><ul>
+<h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1.Two Sum"></a>1.Two Sum</h1><ul>
 <li><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode.com/problems/two-sum/</a></p>
 </li>
 <li><p>Hash tabel</p>
@@ -400,7 +400,22 @@
 </ul>
 </li>
 </ul>
-<h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20. Valid Parentheses"></a>20. Valid Parentheses</h1><ul>
+<h1 id="14-Longest-Common-Prefix"><a href="#14-Longest-Common-Prefix" class="headerlink" title="14.Longest Common Prefix"></a>14.Longest Common Prefix</h1><ul>
+<li><p><a href="https://leetcode.com/problems/longest-common-prefix/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-common-prefix/</a></p>
+</li>
+<li><p>List</p>
+</li>
+<li><p>直接的思路感觉逃不出二重循环，不过这里循环的时候利用不等于会更快捷一些，因为一旦有一个不满足的就是整体不满足了。</p>
+<ul>
+<li><p>实际循环时，可以用min找出最短的字符串，然后获得其长度。</p>
+</li>
+<li><p>首先循环的是shortest里面的每个字符（要注意len(shortest)+1），然后循环的是每个不同的字符串，若有不相等的情况，直接返回prefix[:i-1]即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">prefix = <span class="string">""</span></span><br><span class="line"><span class="keyword">if</span> strs:</span><br><span class="line">	shortest = min(strs)</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(len(shortest)+<span class="number">1</span>):</span><br><span class="line">		prefix = shortest[:i]</span><br><span class="line">		<span class="keyword">for</span> st <span class="keyword">in</span> strs:</span><br><span class="line">			<span class="keyword">if</span> prefix != st[:i]:</span><br><span class="line">				<span class="keyword">return</span> prefix[:i<span class="number">-1</span>]</span><br><span class="line"><span class="keyword">return</span> prefix</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="20-Valid-Parentheses"><a href="#20-Valid-Parentheses" class="headerlink" title="20.Valid Parentheses"></a>20.Valid Parentheses</h1><ul>
 <li><p><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-parentheses/</a></p>
 </li>
 <li><p>Stack</p>
@@ -444,6 +459,32 @@
 </ul>
 </li>
 </ul>
+<h1 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26.Remove Duplicates from Sorted Array"></a>26.Remove Duplicates from Sorted Array</h1><ul>
+<li><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">https://leetcode.com/problems/remove-duplicates-from-sorted-array/</a></p>
+</li>
+<li><p>List &amp; In_place</p>
+</li>
+<li><p>原址操作的问题，用while循环感觉比较直接。</p>
+<ul>
+<li><p>设置一个指针，用来判断当前元素与下一个元素是否相同。如果相同，则删除当前元素，继续进行判断，指针位置保持不变；如果不同，则将指针指向下一个元素。其次，还要需要注意一下while的判断条件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &gt; len(nums)<span class="number">-1</span>:</span><br><span class="line">	<span class="keyword">if</span> nums[i] == nums[i+<span class="number">1</span>]:</span><br><span class="line">		nums.pop(i)</span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		i = i + <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> len(nums)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="28-Implement-strStr"><a href="#28-Implement-strStr" class="headerlink" title="28.Implement strStr()"></a>28.Implement strStr()</h1><ul>
+<li><p><a href="https://leetcode.com/problems/implement-strstr/" target="_blank" rel="noopener">https://leetcode.com/problems/implement-strstr/</a></p>
+</li>
+<li><p>List</p>
+</li>
+<li><p>其实就是python中的string.find()函数。</p>
+<ul>
+<li><p>思路很简单，取出needle的长度，然后从前向后的一次遍历就好。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lens = len(needle)</span><br><span class="line"><span class="keyword">if</span> needle == <span class="string">""</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> lens &gt; len(haystack):</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(haystack) - lens + <span class="number">1</span>):</span><br><span class="line">	strs = haystack[i: i + lens]</span><br><span class="line">    <span class="keyword">if</span> needle == strs:</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line"><span class="keyword">return</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53.Maximum Subarray"></a>53.Maximum Subarray</h1><ul>
 <li><p><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-subarray/</a></p>
 </li>
@@ -465,6 +506,32 @@
 <li><p>上面的解法是很经典的动态规划的解法，但实际上这样维护列表的方式比较耗时。对于这种取最大值的问题，可以只设定一个最大值，然后在遍历过程中及时更新，这样比较节省时间和空间。</p>
 </li>
 </ul>
+<h1 id="66-Plus-One"><a href="#66-Plus-One" class="headerlink" title="66.Plus One"></a>66.Plus One</h1><ul>
+<li><p><a href="https://leetcode.com/problems/plus-one/" target="_blank" rel="noopener">https://leetcode.com/problems/plus-one/</a></p>
+</li>
+<li><p>List <-> Str</-></p>
+</li>
+<li><p>题目本身很简单，这个题目的作用就是熟练掌握list与string之间的各种转换方法。</p>
+<ul>
+<li><p>首先，map(str, digits)可以将整数的list变为字符的list。strs.join(string)可以将字符的list变为一个字符串。int(string)可以将字符串变为整数，string(int)是反向的变换。list(string)可以把一个字符串变为字符的list。以上都使用即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">strs = <span class="string">''</span></span><br><span class="line">strings = list(str(int(strs.join(list(map(str, digits)))) + <span class="number">1</span>))</span><br><span class="line"><span class="keyword">return</span> strings</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="69-Sqrt-x"><a href="#69-Sqrt-x" class="headerlink" title="69.Sqrt(x)"></a>69.Sqrt(x)</h1><ul>
+<li><p><a href="https://leetcode.com/problems/sqrtx/" target="_blank" rel="noopener">https://leetcode.com/problems/sqrtx/</a></p>
+</li>
+<li><p>Binary search</p>
+</li>
+<li><p>二分法的基本应用。</p>
+<ul>
+<li><p>一定注意，func(mid)&lt;target时，low=mid+1，而func(mid)&gt;target时，high=mid。之所以这样，是因为整除操作是去尾法，所以mid向小方向不需要减一，但是mid向大方向需要加一。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x==<span class="number">0</span> <span class="keyword">or</span> x==<span class="number">1</span>:</span><br><span class="line">	<span class="keyword">return</span> x</span><br><span class="line">l = <span class="number">1</span></span><br><span class="line">h = x</span><br><span class="line"><span class="keyword">while</span>(l &lt; h):</span><br><span class="line">	mid = (l+h)//<span class="number">2</span></span><br><span class="line">	<span class="keyword">if</span> mid**<span class="number">2</span> == x:</span><br><span class="line">		<span class="keyword">return</span> mid</span><br><span class="line">	<span class="keyword">elif</span> (mid<span class="number">-1</span>)**<span class="number">2</span>&lt;x <span class="keyword">and</span> mid**<span class="number">2</span>&gt;x:</span><br><span class="line">		<span class="keyword">return</span> mid<span class="number">-1</span></span><br><span class="line">	<span class="keyword">elif</span> mid**<span class="number">2</span> &gt; x:</span><br><span class="line">		h = mid</span><br><span class="line">	<span class="keyword">elif</span> mid**<span class="number">2</span> &lt; x:</span><br><span class="line">		l = mid + <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> mid</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="70-Climbing-Stairs"><a href="#70-Climbing-Stairs" class="headerlink" title="70.Climbing Stairs"></a>70.Climbing Stairs</h1><ul>
 <li><p><a href="https://leetcode.com/problems/climbing-stairs/description/" target="_blank" rel="noopener">https://leetcode.com/problems/climbing-stairs/description/</a></p>
 </li>
@@ -480,6 +547,19 @@
 </li>
 <li><p>最后给循环规则，返回即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>, n+<span class="number">1</span>):</span><br><span class="line">	result.append(result[i<span class="number">-2</span>] + result[i<span class="number">-1</span>])</span><br><span class="line">	<span class="keyword">return</span> result[n]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="88-Merge-Sorted-Array"><a href="#88-Merge-Sorted-Array" class="headerlink" title="88.Merge Sorted Array"></a>88.Merge Sorted Array</h1><ul>
+<li><p><a href="https://leetcode.com/problems/merge-sorted-array/" target="_blank" rel="noopener">https://leetcode.com/problems/merge-sorted-array/</a></p>
+</li>
+<li><p>List插入 &amp; 双指针</p>
+</li>
+<li><p>这个题目用python内置函数list.sort()非常容易AC，但是也可以手动操作。手动操作时，从后向前利用双指针比较插入是很巧妙的做法，这样不会破坏list本身的顺序，还能以O(n)的速度进行插入排列。</p>
+<ul>
+<li><p>还有一点就是while循环结束后，有两种可能，point1没循环完，这种不需要操作，因为返回的是nums1；point2没循环完的话，需要继续遍历直到point2为0。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">point1 = m<span class="number">-1</span></span><br><span class="line">point2 = n<span class="number">-1</span></span><br><span class="line">des = m+n<span class="number">-1</span></span><br><span class="line"><span class="keyword">while</span> point1 &gt;= <span class="number">0</span> <span class="keyword">and</span> point2 &gt;= <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">if</span> nums1[point1] &gt;= nums2[point2]:</span><br><span class="line">        nums1[des] = nums1[point1]</span><br><span class="line">        des -= <span class="number">1</span></span><br><span class="line">        point1 -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        nums1[des] = nums2[point2]</span><br><span class="line">        des -= <span class="number">1</span></span><br><span class="line">        point2 -= <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> point2 &gt;= <span class="number">0</span>:</span><br><span class="line">    nums1[des] = nums2[point2]</span><br><span class="line">    des -= <span class="number">1</span></span><br><span class="line">    point2 -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -517,7 +597,7 @@
 <li><p>递归算法非常经典，而树的结构正是天然的递归形式，所以递归树非常关键。</p>
 </li>
 </ul>
-<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a>104. Maximum Depth of Binary Tree</h1><ul>
+<h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104.Maximum Depth of Binary Tree"></a>104.Maximum Depth of Binary Tree</h1><ul>
 <li><p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p>
 </li>
 <li><p>Binary tree &amp; 递归</p>
@@ -529,6 +609,35 @@
 </li>
 <li><p>主函数里面直接调用即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = depth(root)</span><br><span class="line"><span class="keyword">return</span> d</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="108-Convert-Sorted-Array-to-Binary-Search-Tree"><a href="#108-Convert-Sorted-Array-to-Binary-Search-Tree" class="headerlink" title="108.Convert Sorted Array to Binary Search Tree"></a>108.Convert Sorted Array to Binary Search Tree</h1><ul>
+<li><p><a href="https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/</a></p>
+</li>
+<li><p>Binary Search Tree</p>
+</li>
+<li><p>这样的题目还是得多加联系，主要还是递归思想。该题目的关键是要将nums及时等分送入下一循环，有点儿类似广度优先遍历的感觉。</p>
+<ul>
+<li><p>当nums没有内容的时候，直接返回none；当nums只有一个元素的时候，构造节点后即可直接返回。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> len(nums)==<span class="number">0</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"><span class="keyword">if</span> len(nums)==<span class="number">1</span>:</span><br><span class="line">	<span class="keyword">return</span> TreeNode(nums[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正常的情况下，取nums正中间元素构建节点，从而满足二分查找树有序的原则。然后将nums根据中间一分两半，分别送入left，right的构造。时刻记得要返回root，才能逻辑上构成一棵树。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mid = len(nums) // <span class="number">2</span></span><br><span class="line">root = TreeNode(nums[mid])</span><br><span class="line"></span><br><span class="line">root.left = self.sortedBinaryToBST(nums[:mid])</span><br><span class="line">root.right = self.sortedBinartToBST(nums[mid+<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="118-Pascal’s-Triangle"><a href="#118-Pascal’s-Triangle" class="headerlink" title="118.Pascal’s Triangle"></a>118.Pascal’s Triangle</h1><ul>
+<li><p><a href="https://leetcode.com/problems/pascals-triangle/" target="_blank" rel="noopener">https://leetcode.com/problems/pascals-triangle/</a></p>
+</li>
+<li><p>List</p>
+</li>
+<li><p>题目还是比较直接的，简单的双重循环即可AC。</p>
+<ul>
+<li><p>值得注意的只有一点，要求返回的list是整数类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> numRows == <span class="number">0</span>:</span><br><span class="line">	<span class="keyword">return</span> []</span><br><span class="line">rows = [[<span class="number">1</span>]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, numRows+<span class="number">1</span>):</span><br><span class="line">	row = np.ones(i).astype(int)</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>, i<span class="number">-1</span>):</span><br><span class="line">		row[j] = int(rows[<span class="number">-1</span>][j<span class="number">-1</span>] + rows[<span class="number">-1</span>][j])</span><br><span class="line">	rows.append(row)</span><br><span class="line"><span class="keyword">return</span> rows</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -545,6 +654,22 @@
 </li>
 <li><p>for循环遍历，并在遍历过程中记录最小值，计算最大差即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> prices:</span><br><span class="line">	<span class="keyword">if</span> i &lt; my_min:</span><br><span class="line">		my_min = i</span><br><span class="line">	<span class="keyword">elif</span> i - my_min &gt; final_max:</span><br><span class="line">		final_max = i - my_min</span><br><span class="line">	<span class="keyword">return</span> final_max</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="122-Best-Time-to-Buy-and-Sell-Stock-II"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="122.Best Time to Buy and Sell Stock II"></a>122.Best Time to Buy and Sell Stock II</h1><ul>
+<li><p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/</a></p>
+</li>
+<li><p>动态规划</p>
+</li>
+<li><p>这类题目还是比较经典的动态规划的题目，当前的值=上一个节点的值+满足条件情况下增加的值。</p>
+<ul>
+<li><p>如果长度为1，直接返回0</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> len(prices)==<span class="number">1</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先给定解空间一个初始值，然后从前至后遍历，更新解空间的值，更新条件就是当前money值=上一个money值+上一个节点买这个节点卖的money值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">money = [<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(prices)):</span><br><span class="line">    <span class="keyword">if</span> prices[i] &lt; prices[i<span class="number">-1</span>]:</span><br><span class="line">        money.append(money[<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        money.append(money[<span class="number">-1</span>]+prices[i]-prices[i<span class="number">-1</span>])</span><br><span class="line"><span class="keyword">return</span> max(money)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -823,8 +948,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Python数据结构/" rel="next" title="Python数据结构">
-                <i class="fa fa-chevron-left"></i> Python数据结构
+              <a href="/Python基础/" rel="next" title="Python基础">
+                <i class="fa fa-chevron-left"></i> Python基础
               </a>
             
           </div>
@@ -833,8 +958,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Debug-Record/" rel="prev" title="Debug Record">
-                Debug Record <i class="fa fa-chevron-right"></i>
+              <a href="/Pytorch基础/" rel="prev" title="Pytorch基础">
+                Pytorch基础 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -983,7 +1108,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1. Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Roman-to-Integer"><span class="nav-number">3.</span> <span class="nav-text">13.Roman to Integer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">4.</span> <span class="nav-text">20. Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">5.</span> <span class="nav-text">21.Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">6.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">7.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">8.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#104-Maximum-Depth-of-Binary-Tree"><span class="nav-number">9.</span> <span class="nav-text">104. Maximum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#121-Best-Time-to-Buy-and-Sell-Stock"><span class="nav-number">10.</span> <span class="nav-text">121.Best Time to Buy and Sell Stock</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">11.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">12.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#160-Intersection-of-Two-Linked-Lists"><span class="nav-number">13.</span> <span class="nav-text">160.Intersection of Two Linked Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">14.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">15.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">16.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#226-Invert-Binary-Tree"><span class="nav-number">17.</span> <span class="nav-text">226.Invert Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">18.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">19.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">20.</span> <span class="nav-text">437.Path Sum III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#448-Find-All-Numbers-Disappeared-in-an-Array"><span class="nav-number">21.</span> <span class="nav-text">448.Find All Numbers Disappeared in an Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#543-Diameter-of-Binary-Tree"><span class="nav-number">22.</span> <span class="nav-text">543.Diameter of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#581-Shortest-Unsorted-Continuous-Subarray"><span class="nav-number">23.</span> <span class="nav-text">581.Shortest Unsorted Continuous Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#617-Merge-Two-Binary-Trees"><span class="nav-number">24.</span> <span class="nav-text">617.Merge Two Binary Trees</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1.Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Roman-to-Integer"><span class="nav-number">3.</span> <span class="nav-text">13.Roman to Integer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-Longest-Common-Prefix"><span class="nav-number">4.</span> <span class="nav-text">14.Longest Common Prefix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">5.</span> <span class="nav-text">20.Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">6.</span> <span class="nav-text">21.Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#26-Remove-Duplicates-from-Sorted-Array"><span class="nav-number">7.</span> <span class="nav-text">26.Remove Duplicates from Sorted Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#28-Implement-strStr"><span class="nav-number">8.</span> <span class="nav-text">28.Implement strStr()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">9.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#66-Plus-One"><span class="nav-number">10.</span> <span class="nav-text">66.Plus One</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#69-Sqrt-x"><span class="nav-number">11.</span> <span class="nav-text">69.Sqrt(x)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">12.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#88-Merge-Sorted-Array"><span class="nav-number">13.</span> <span class="nav-text">88.Merge Sorted Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">14.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#104-Maximum-Depth-of-Binary-Tree"><span class="nav-number">15.</span> <span class="nav-text">104.Maximum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#108-Convert-Sorted-Array-to-Binary-Search-Tree"><span class="nav-number">16.</span> <span class="nav-text">108.Convert Sorted Array to Binary Search Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#118-Pascal’s-Triangle"><span class="nav-number">17.</span> <span class="nav-text">118.Pascal’s Triangle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#121-Best-Time-to-Buy-and-Sell-Stock"><span class="nav-number">18.</span> <span class="nav-text">121.Best Time to Buy and Sell Stock</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#122-Best-Time-to-Buy-and-Sell-Stock-II"><span class="nav-number">19.</span> <span class="nav-text">122.Best Time to Buy and Sell Stock II</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">20.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">21.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#160-Intersection-of-Two-Linked-Lists"><span class="nav-number">22.</span> <span class="nav-text">160.Intersection of Two Linked Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">23.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">24.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">25.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#226-Invert-Binary-Tree"><span class="nav-number">26.</span> <span class="nav-text">226.Invert Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">27.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">28.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">29.</span> <span class="nav-text">437.Path Sum III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#448-Find-All-Numbers-Disappeared-in-an-Array"><span class="nav-number">30.</span> <span class="nav-text">448.Find All Numbers Disappeared in an Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#543-Diameter-of-Binary-Tree"><span class="nav-number">31.</span> <span class="nav-text">543.Diameter of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#581-Shortest-Unsorted-Continuous-Subarray"><span class="nav-number">32.</span> <span class="nav-text">581.Shortest Unsorted Continuous Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#617-Merge-Two-Binary-Trees"><span class="nav-number">33.</span> <span class="nav-text">617.Merge Two Binary Trees</span></a></li></ol></div>
             
 
           </div>
