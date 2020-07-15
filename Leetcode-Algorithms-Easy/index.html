@@ -81,7 +81,7 @@
 <meta property="og:site_name" content="Blcony">
 <meta property="og:description" content="Leetcode – Easy">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-17T08:10:37.220Z">
+<meta property="og:updated_time" content="2020-06-22T09:04:11.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode Algorithms Easy">
 <meta name="twitter:description" content="Leetcode – Easy">
@@ -674,6 +674,19 @@
 </ul>
 </li>
 </ul>
+<h1 id="125-Valid-Palindrome"><a href="#125-Valid-Palindrome" class="headerlink" title="125.Valid Palindrome"></a>125.Valid Palindrome</h1><ul>
+<li><p><a href="https://leetcode.com/problems/valid-palindrome/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-palindrome/</a></p>
+</li>
+<li><p>List &amp; String</p>
+</li>
+<li><p>题目思路很简单，把一个包含标点空格的字符串转换为小写的纯字符串，然后倒置后比较即可。</p>
+<ul>
+<li><p>主要还是一些stirng函数用法的积累</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> s == <span class="literal">None</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">strs = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">	<span class="keyword">if</span> i.isalpha() <span class="keyword">or</span> i.isdigit():</span><br><span class="line">		strs.append(i.lower())</span><br><span class="line">strs2 = strs[::<span class="number">-1</span>]</span><br><span class="line"><span class="keyword">if</span> strs == strs2:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <h1 id="136-Single-Number"><a href="#136-Single-Number" class="headerlink" title="136.Single Number"></a>136.Single Number</h1><ul>
 <li><p><a href="https://leetcode.com/problems/single-number/description/" target="_blank" rel="noopener">https://leetcode.com/problems/single-number/description/</a></p>
 </li>
@@ -744,6 +757,28 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums.sort()</span><br><span class="line"><span class="keyword">return</span> nums[len(nums) // <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+</ul>
+<h1 id="171-Excel-Sheet-Column-Number"><a href="#171-Excel-Sheet-Column-Number" class="headerlink" title="171.Excel Sheet Column Number"></a>171.Excel Sheet Column Number</h1><ul>
+<li><p><a href="https://leetcode.com/problems/excel-sheet-column-number/" target="_blank" rel="noopener">https://leetcode.com/problems/excel-sheet-column-number/</a></p>
+</li>
+<li><p>String</p>
+</li>
+<li><p>思路很简单，就是26进制转换为10进制。最直接的想法是做一个dict用来存储字母与数字之间的对应关系，但是这种操作比较粗鲁。所以可以考虑写一个字母到数字的转换函数。</p>
+<ul>
+<li><p>字母到数字的转换绕不开ASCII码，而python内嵌的ord()函数可以输入字符返回对应的ASCII数值。然后利用差值即可进行转换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">alphatonumber</span><span class="params">(a)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> int(ord(a) - ord(<span class="string">'A'</span>) + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line">sums = <span class="number">0</span></span><br><span class="line">l = list(s)</span><br><span class="line"><span class="keyword">while</span> l:</span><br><span class="line">	strs = l.pop(<span class="number">-1</span>)</span><br><span class="line">	sums += alphatonumber(strs) * <span class="number">26</span>**(i)</span><br><span class="line">	i += <span class="number">1</span></span><br><span class="line"><span class="keyword">return</span> sums</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="172-Factorial-Trailing-Zeros"><a href="#172-Factorial-Trailing-Zeros" class="headerlink" title="172.Factorial Trailing Zeros"></a>172.Factorial Trailing Zeros</h1><ul>
+<li><p><a href="https://leetcode.com/problems/factorial-trailing-zeroes/" target="_blank" rel="noopener">https://leetcode.com/problems/factorial-trailing-zeroes/</a></p>
+</li>
+<li><p>Math</p>
+</li>
+<li><p>这个题目我还没有理解到位。题目要求是log时间复杂度，所以暴力法排除。有一种巧妙的思路：所有尾部的0可以看作2*5得来的，所以通过计算所有因子中2和5的个数就可以知道尾部0的个数。实际上，2的个数肯定是足够的，所以只需要计算5的个数即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> (n // <span class="number">5</span>) != <span class="number">0</span>:</span><br><span class="line">    n = n // <span class="number">5</span></span><br><span class="line">    ans += n</span><br><span class="line"><span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h1 id="198-House-Robber"><a href="#198-House-Robber" class="headerlink" title="198.House Robber"></a>198.House Robber</h1><ul>
@@ -948,18 +983,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Python基础/" rel="next" title="Python基础">
-                <i class="fa fa-chevron-left"></i> Python基础
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Pytorch基础/" rel="prev" title="Pytorch基础">
-                Pytorch基础 <i class="fa fa-chevron-right"></i>
+              <a href="/Leetcode-Algorithms-Medium/" rel="prev" title="Leetcode Algorithms Medium">
+                Leetcode Algorithms Medium <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1037,7 +1068,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1048,7 +1079,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1059,7 +1090,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1108,7 +1139,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1.Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Roman-to-Integer"><span class="nav-number">3.</span> <span class="nav-text">13.Roman to Integer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-Longest-Common-Prefix"><span class="nav-number">4.</span> <span class="nav-text">14.Longest Common Prefix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">5.</span> <span class="nav-text">20.Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">6.</span> <span class="nav-text">21.Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#26-Remove-Duplicates-from-Sorted-Array"><span class="nav-number">7.</span> <span class="nav-text">26.Remove Duplicates from Sorted Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#28-Implement-strStr"><span class="nav-number">8.</span> <span class="nav-text">28.Implement strStr()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">9.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#66-Plus-One"><span class="nav-number">10.</span> <span class="nav-text">66.Plus One</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#69-Sqrt-x"><span class="nav-number">11.</span> <span class="nav-text">69.Sqrt(x)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">12.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#88-Merge-Sorted-Array"><span class="nav-number">13.</span> <span class="nav-text">88.Merge Sorted Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">14.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#104-Maximum-Depth-of-Binary-Tree"><span class="nav-number">15.</span> <span class="nav-text">104.Maximum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#108-Convert-Sorted-Array-to-Binary-Search-Tree"><span class="nav-number">16.</span> <span class="nav-text">108.Convert Sorted Array to Binary Search Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#118-Pascal’s-Triangle"><span class="nav-number">17.</span> <span class="nav-text">118.Pascal’s Triangle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#121-Best-Time-to-Buy-and-Sell-Stock"><span class="nav-number">18.</span> <span class="nav-text">121.Best Time to Buy and Sell Stock</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#122-Best-Time-to-Buy-and-Sell-Stock-II"><span class="nav-number">19.</span> <span class="nav-text">122.Best Time to Buy and Sell Stock II</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">20.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">21.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#160-Intersection-of-Two-Linked-Lists"><span class="nav-number">22.</span> <span class="nav-text">160.Intersection of Two Linked Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">23.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">24.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">25.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#226-Invert-Binary-Tree"><span class="nav-number">26.</span> <span class="nav-text">226.Invert Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">27.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">28.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">29.</span> <span class="nav-text">437.Path Sum III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#448-Find-All-Numbers-Disappeared-in-an-Array"><span class="nav-number">30.</span> <span class="nav-text">448.Find All Numbers Disappeared in an Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#543-Diameter-of-Binary-Tree"><span class="nav-number">31.</span> <span class="nav-text">543.Diameter of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#581-Shortest-Unsorted-Continuous-Subarray"><span class="nav-number">32.</span> <span class="nav-text">581.Shortest Unsorted Continuous Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#617-Merge-Two-Binary-Trees"><span class="nav-number">33.</span> <span class="nav-text">617.Merge Two Binary Trees</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-Template"><span class="nav-number">1.</span> <span class="nav-text">0. Template</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Two-Sum"><span class="nav-number">2.</span> <span class="nav-text">1.Two Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Roman-to-Integer"><span class="nav-number">3.</span> <span class="nav-text">13.Roman to Integer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-Longest-Common-Prefix"><span class="nav-number">4.</span> <span class="nav-text">14.Longest Common Prefix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#20-Valid-Parentheses"><span class="nav-number">5.</span> <span class="nav-text">20.Valid Parentheses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-Merge-Two-Sorted-Lists"><span class="nav-number">6.</span> <span class="nav-text">21.Merge Two Sorted Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#26-Remove-Duplicates-from-Sorted-Array"><span class="nav-number">7.</span> <span class="nav-text">26.Remove Duplicates from Sorted Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#28-Implement-strStr"><span class="nav-number">8.</span> <span class="nav-text">28.Implement strStr()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">9.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#66-Plus-One"><span class="nav-number">10.</span> <span class="nav-text">66.Plus One</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#69-Sqrt-x"><span class="nav-number">11.</span> <span class="nav-text">69.Sqrt(x)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-Climbing-Stairs"><span class="nav-number">12.</span> <span class="nav-text">70.Climbing Stairs</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#88-Merge-Sorted-Array"><span class="nav-number">13.</span> <span class="nav-text">88.Merge Sorted Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">14.</span> <span class="nav-text">101.Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#104-Maximum-Depth-of-Binary-Tree"><span class="nav-number">15.</span> <span class="nav-text">104.Maximum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#108-Convert-Sorted-Array-to-Binary-Search-Tree"><span class="nav-number">16.</span> <span class="nav-text">108.Convert Sorted Array to Binary Search Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#118-Pascal’s-Triangle"><span class="nav-number">17.</span> <span class="nav-text">118.Pascal’s Triangle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#121-Best-Time-to-Buy-and-Sell-Stock"><span class="nav-number">18.</span> <span class="nav-text">121.Best Time to Buy and Sell Stock</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#122-Best-Time-to-Buy-and-Sell-Stock-II"><span class="nav-number">19.</span> <span class="nav-text">122.Best Time to Buy and Sell Stock II</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#125-Valid-Palindrome"><span class="nav-number">20.</span> <span class="nav-text">125.Valid Palindrome</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#136-Single-Number"><span class="nav-number">21.</span> <span class="nav-text">136.Single Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#141-Linked-List-Cycle"><span class="nav-number">22.</span> <span class="nav-text">141.Linked List Cycle</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#160-Intersection-of-Two-Linked-Lists"><span class="nav-number">23.</span> <span class="nav-text">160.Intersection of Two Linked Lists</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#169-Majority-Element"><span class="nav-number">24.</span> <span class="nav-text">169.Majority Element</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#171-Excel-Sheet-Column-Number"><span class="nav-number">25.</span> <span class="nav-text">171.Excel Sheet Column Number</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#172-Factorial-Trailing-Zeros"><span class="nav-number">26.</span> <span class="nav-text">172.Factorial Trailing Zeros</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#198-House-Robber"><span class="nav-number">27.</span> <span class="nav-text">198.House Robber</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">28.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#226-Invert-Binary-Tree"><span class="nav-number">29.</span> <span class="nav-text">226.Invert Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#234-Palindrome-Linked-List"><span class="nav-number">30.</span> <span class="nav-text">234.Palindrome Linked List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-Move-Zeroes"><span class="nav-number">31.</span> <span class="nav-text">283.Move Zeroes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#437-Path-Sum-III"><span class="nav-number">32.</span> <span class="nav-text">437.Path Sum III</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#448-Find-All-Numbers-Disappeared-in-an-Array"><span class="nav-number">33.</span> <span class="nav-text">448.Find All Numbers Disappeared in an Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#543-Diameter-of-Binary-Tree"><span class="nav-number">34.</span> <span class="nav-text">543.Diameter of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#581-Shortest-Unsorted-Continuous-Subarray"><span class="nav-number">35.</span> <span class="nav-text">581.Shortest Unsorted Continuous Subarray</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#617-Merge-Two-Binary-Trees"><span class="nav-number">36.</span> <span class="nav-text">617.Merge Two Binary Trees</span></a></li></ol></div>
             
 
           </div>
